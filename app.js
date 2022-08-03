@@ -140,7 +140,7 @@ function counterMoves(comparedCardsCounter = 0) {
 function totalCorrectCounter(totalCorrect) {
   const modal = document.querySelector(".modal");
   const endModalContent = document.querySelector(".endModalContent");
-  if (selectedTheme === "movies" && totalCorrect === 36) {
+  if (selectedTheme === "movies" && totalCorrect === 18) {
     endTotalInfo(gameTime, comparedCardsCounter);
     endGame(myTimer);
     setTimeout(() => {
@@ -149,7 +149,7 @@ function totalCorrectCounter(totalCorrect) {
     }, 2000);
   } else if (
     (selectedTheme === "Al Pacino" || selectedTheme === "Robert De Niro") &&
-    totalCorrect === 18
+    totalCorrect === 9
   ) {
     endTotalInfo(gameTime, comparedCardsCounter);
     endGame(myTimer);
