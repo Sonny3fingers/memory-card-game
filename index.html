@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Memory Card Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="modal show">
+        <div class="startModalContent showStartModal">
+          <div class="startModalHeader">
+            <h1>Memory Card Game</h1>
+            <p>Welcome</p>
+          </div>
+          <div class="startGameInfo">
+            <div class="selectTheme">
+              <p>Select Theme</p>
+              <div>
+                <input
+                  type="radio"
+                  name="themeOption"
+                  id="all"
+                  value="movies"
+                />
+                <label for="movies">Al Pacino & Robert De Niro</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="themeOption"
+                  id="pacino"
+                  value="Al Pacino"
+                />
+                <label for="pacino">Al Pacino</label>
+              </div>
+              <div>
+                <input
+                  type="radio"
+                  name="themeOption"
+                  id="deniro"
+                  value="Robert De Niro"
+                />
+                <label for="deniro">Robert De Niro</label>
+              </div>
+            </div>
+          </div>
+          <div class="startGameActions">
+            <button>enter</button>
+          </div>
+        </div>
+        <div class="endModalContent">
+          <div class="endModalHeader">
+            <h1>You did it!</h1>
+            <p>Game over! Here's how you got on</p>
+          </div>
+          <div class="endGameInfo">
+            <div class="endTimeInfo">
+              <span>Total Time</span>
+            </div>
+            <div class="endTotalMoves">
+              <span>Total Moves</span>
+            </div>
+          </div>
+          <div class="endGameActions">
+            <button>restart</button>
+          </div>
+        </div>
+      </div>
+      <header>
+        <h1>Memory Card Game</h1>
+        <div class="actions">
+          <button value="start">start</button>
+        </div>
+        <div class="gameInfo">
+          <div class="time"><span>time </span><span class="watch"></span></div>
+          <div class="moves"><span>moves </span><span></span></div>
+        </div>
+      </header>
+      <section></section>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

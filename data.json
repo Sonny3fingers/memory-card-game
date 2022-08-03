@@ -1,0 +1,202 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "actor": "Al Pacino",
+      "title": "The Godfather",
+      "director": "Frances Ford Coppola",
+      "year": 1972,
+      "image": {
+        "jpg": "images/image2/jpg",
+        "id": 1
+      }
+    },
+    {
+      "id": 2,
+      "actor": "Robert De Niro",
+      "title": "The Godfather: Part II",
+      "director": "Frances Ford Coppola",
+      "year": 1974,
+      "image": {
+        "jpg": "./images/image10/jpg",
+        "id": 2
+      }
+    },
+    {
+      "id": 3,
+      "actor": "Al Pacino",
+      "title": "Serpico",
+      "director": "Sidney Lumet",
+      "year": 1973,
+      "image": {
+        "jpg": "./images/image1/jpg",
+        "id": 3
+      }
+    },
+    {
+      "id": 4,
+      "actor": "Robert De Niro",
+      "title": "Taxi Driver",
+      "director": "Martin Scorsese",
+      "year": 1976,
+      "image": {
+        "jpg": "./images/image3/jpg",
+        "id": 4
+      }
+    },
+    {
+      "id": 5,
+      "actor": "Robert De Niro",
+      "title": "The Deer Hunter",
+      "director": "Michael Cimino",
+      "year": 1978,
+      "image": {
+        "jpg": "./images/image4/jpg",
+        "id": 5
+      }
+    },
+    {
+      "id": 6,
+      "actor": "Robert De Niro",
+      "title": "Goodfellas",
+      "director": "Martin Scorsese",
+      "year": 1990,
+      "image": {
+        "jpg": "./images/image5/jpg",
+        "id": 6
+      }
+    },
+    {
+      "id": 7,
+      "actor": "Al Pacino",
+      "title": "Dog Day Afternoon",
+      "director": "Sidney Lumet",
+      "year": 1975,
+      "image": {
+        "jpg": "./images/image6/jpg",
+        "id": 7
+      }
+    },
+    {
+      "id": 8,
+      "actor": "Robert De Niro",
+      "title": "Ragging Bull",
+      "director": "Martin Scorsese",
+      "year": 1980,
+      "image": {
+        "jpg": "./images/image9/jpg",
+        "id": 8
+      }
+    },
+    {
+      "id": 9,
+      "actor": "Al Pacino",
+      "title": "Scarface",
+      "director": "Brian De Palma",
+      "year": 1983,
+      "image": {
+        "jpg": "./images/image8/jpg",
+        "id": 9
+      }
+    },
+    {
+      "id": 10,
+      "actor": "Robert De Niro",
+      "title": "Once Upon A Time In America",
+      "director": "Sergio Leone",
+      "year": 1984,
+      "image": {
+        "jpg": "./images/image7/jpg",
+        "id": 10
+      }
+    },
+    {
+      "id": 11,
+      "actor": "Al Pacino",
+      "title": "Scent Of A Woman",
+      "director": "Martin Brest",
+      "year": 1992,
+      "image": {
+        "jpg": "./images/image12/jpg",
+        "id": 11
+      }
+    },
+    {
+      "id": 12,
+      "actor": "Al Pacino",
+      "title": "Carlito's Way",
+      "director": "Brian De Palma",
+      "year": 1993,
+      "image": {
+        "jpg": "./images/image11/jpg",
+        "id": 12
+      }
+    },
+    {
+      "id": 13,
+      "actor": "Al Pacino",
+      "title": "Heat",
+      "director": "Michael Mann",
+      "year": 1995,
+      "image": {
+        "jpg": "./images/image13/jpg",
+        "id": 13
+      }
+    },
+    {
+      "id": 14,
+      "actor": "Robert De Niro",
+      "title": "Heat",
+      "director": "Michael Mann",
+      "year": 1995,
+      "image": {
+        "jpg": "./images/image14/jpg",
+        "id": 14
+      }
+    },
+    {
+      "id": 15,
+      "actor": "Robert De Niro",
+      "title": "Meet The Parents",
+      "director": "Jay Roach",
+      "year": 2000,
+      "image": {
+        "jpg": "./images/image15/jpg",
+        "id": 15
+      }
+    },
+    {
+      "id": 16,
+      "actor": "Al Pacino",
+      "title": "The Devil's Advocate",
+      "director": "Taylor Hackford",
+      "year": 1997,
+      "image": {
+        "jpg": "./images/image16/jpg",
+        "id": 16
+      }
+    },
+    {
+      "id": 17,
+      "actor": "Al Pacino",
+      "title": "Donnie Brasco",
+      "director": "Mike Newel",
+      "year": 1997,
+      "image": {
+        "jpg": "./images/image17/jpg",
+        "id": 17
+      }
+    },
+    {
+      "id": 18,
+      "actor": "Robert De Niro",
+      "title": "Jackie Brown",
+      "director": "Quentin Tarantino",
+      "year": 1997,
+      "image": {
+        "jpg": "./images/image18/jpg",
+        "id": 18
+      }
+    }
+  ]
+}
