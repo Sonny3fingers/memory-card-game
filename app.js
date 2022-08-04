@@ -1,4 +1,5 @@
 const section = document.querySelector("section");
+const loader = document.querySelector("section .loader");
 let selectedTheme = null;
 let totalCorrect = 0;
 let gameTime;
@@ -35,6 +36,7 @@ function getSelectedData(dataRes) {
       }
     }
   }
+  loader.style.display = "none";
   return data;
 }
 // Sort random data
