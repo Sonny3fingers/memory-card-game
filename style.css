@@ -149,7 +149,7 @@ section {
   justify-content: center;
   grid-gap: 1rem;
   perspective: 800px;
-  pointer-events: none;
+  /* pointer-events: none; */
   cursor: not-allowed;
   padding: 1.5rem 0rem;
 }
@@ -170,7 +170,8 @@ section.selectedSingleActor {
   transform-style: preserve-3d;
   transition: all 1s ease;
   transform: rotateY(0deg);
-  cursor: pointer;
+  pointer-events: none;
+  /* cursor: not-allowed; */
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
 .card.flipped {
@@ -221,6 +222,7 @@ section.selectedSingleActor {
   border: 16px solid #dfe7ec;
   border-radius: 50%;
   border-top: 16px solid #6395b8;
+  border-bottom: 16px solid #304859;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 2s linear infinite; /* Safari */

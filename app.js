@@ -1,5 +1,6 @@
 const section = document.querySelector("section");
 const loader = document.querySelector("section .loader");
+
 let selectedTheme = null;
 let totalCorrect = 0;
 let gameTime;
@@ -104,6 +105,7 @@ const compareCards = () => {
 };
 // Start game
 const startGame = () => {
+  const cards = document.querySelectorAll(".card");
   const timeDOM = document.querySelector(".time");
   const watchEl = document.createElement("span");
   let started = false;
@@ -115,8 +117,12 @@ const startGame = () => {
   startBtn.classList.add("start");
   startBtn.addEventListener("click", () => {
     if (!started) {
-      section.style.pointerEvents = "all";
+      // section.style.pointerEvents = "all";
       section.style.cursor = "pointer";
+      cards.forEach((card) => {
+        card.style.pointerEvents = "all";
+        card.style.cursor = "pointer";
+      });
       started = true;
       startBtn.innerText = "pause";
       myTimer = setInterval(() => {
@@ -125,8 +131,10 @@ const startGame = () => {
         watchEl.innerText = `${gameTime}`;
       }, 1000);
     } else {
-      section.style.pointerEvents = "none";
       section.style.cursor = "not-allowed";
+      cards.forEach((card) => {
+        card.style.pointerEvents = "none";
+      });
       started = false;
       startBtn.innerText = "start";
       clearInterval(myTimer);
