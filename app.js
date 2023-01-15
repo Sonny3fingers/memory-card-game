@@ -2,65 +2,101 @@ const section = document.querySelector("section");
 const loader = document.querySelector("section .loader");
 
 let selectedTheme = null;
+let params = null;
 let totalCorrect = 0;
 let gameTime;
 let comparedCardsCounter = 0;
 let myTimer;
 let movies = [];
+let roles = [];
 // fetchData
 const fetchData = async () => {
   try {
     const response = await fetch(
-      "https://my-movie-memory-game.herokuapp.com/movies"
+      `https://memory-card-game-2d4ca-default-rtdb.europe-west1.firebasedatabase.app/${params}.json`
     );
     const data = await response.json();
-    return data;
+    if (data["Al Pacino"] || data["Robert De Niro"]) {
+      // Make pairs of fetched data
+      Object.values(data)
+        .concat(Object.values(data))
+        .forEach((item) => {
+          for (let key in item) {
+            roles.push(item[key]);
+          }
+        });
+      console.log(roles);
+    } else {
+      // Make pairs of fetched data
+      Object.entries(data)
+        .concat(Object.entries(data))
+        .forEach((item) => {
+          roles.push(item[1]);
+        });
+      console.log(roles);
+    }
+    loader.style.display = "none";
+    return roles;
   } catch (error) {
     alert(error);
   }
 };
 // Get selected data
-function getSelectedData(dataRes) {
-  let data = [];
-  if (selectedTheme === "movies") {
-    dataRes.forEach((movie) => data.push(movie));
+// function getSelectedData(dataRes) {
+//   let data = [];
+//   if (selectedTheme === "movies") {
+//     dataRes.forEach((movie) => data.push(movie));
+//   } else if (selectedTheme === "Al Pacino") {
+//     for (const movie of dataRes) {
+//       if (movie.actor === "Al Pacino") {
+//         data.push(movie);
+//       }
+//     }
+//   } else if (selectedTheme === "Robert De Niro") {
+//     for (const movie of dataRes) {
+//       if (movie.actor === "Robert De Niro") {
+//         data.push(movie);
+//       }
+//     }
+//   }
+//   loader.style.display = "none";
+//   return data;
+// }
+function setParams() {
+  if (selectedTheme === "actors") {
+    params = "actors";
   } else if (selectedTheme === "Al Pacino") {
-    for (const movie of dataRes) {
-      if (movie.actor === "Al Pacino") {
-        data.push(movie);
-      }
-    }
+    params = "actors/Al%20Pacino";
   } else if (selectedTheme === "Robert De Niro") {
-    for (const movie of dataRes) {
-      if (movie.actor === "Robert De Niro") {
-        data.push(movie);
-      }
-    }
+    params = "actors/Robert%20De%20Niro";
   }
-  loader.style.display = "none";
-  return data;
+  return params;
 }
 // Sort random data
 const randomize = (data) => {
   return data.sort(() => Math.random() - 0.5);
 };
 // Create cards
-const createCards = (movies) => {
-  movies.length === 36
+const createCards = (data) => {
+  data.length === 36
     ? `${section.classList.add("selectedBothActors")}`
     : `${section.classList.add("selectedSingleActor")}`;
-  movies.forEach((movie) => {
+  data.forEach((item) => {
     const card = document.createElement("div");
     card.classList.add("card");
-    card.id = movie.id;
-    card.setAttribute("dataId", movie.dataId);
+    // card.id = item.id;
+    card.setAttribute("dataId", item.dataId);
     const frontImgCard = document.createElement("img");
-    frontImgCard.src = `${movie.image.jpg}`;
+    frontImgCard.src = `${item.imageUrl}`;
     frontImgCard.classList = "front";
-    frontImgCard.id = movie.image.id;
+    // frontImgCard.id = movie.image.id;
     const backCard = document.createElement("div");
     const backCardName = document.createElement("h3");
-    backCardName.textContent = movie.actor;
+    backCardName.textContent = item.actor;
+    // This is other way to add text to backCard
+    // item.dataId.includes("a1")
+    //   ? `${(backCardName.textContent = "Al Pacino")}`
+    //   : `${(backCardName.textContent = "Robert de Niro")}`;
     backCard.classList = "back";
     backCard.appendChild(backCardName);
     card.appendChild(frontImgCard);
@@ -150,7 +186,7 @@ function counterMoves(comparedCardsCounter = 0) {
 function totalCorrectCounter(totalCorrect) {
   const modal = document.querySelector(".modal");
   const endModalContent = document.querySelector(".endModalContent");
-  if (selectedTheme === "movies" && totalCorrect === 18) {
+  if (selectedTheme === "actors" && totalCorrect === 18) {
     endTotalInfo(gameTime, comparedCardsCounter);
     endGame(myTimer);
     setTimeout(() => {
@@ -215,20 +251,39 @@ function getSelectedItem(data) {
       modal.classList.remove("show");
     }
 
+    setParams();
     fetchData()
-      .then((data) => {
-        return (data = getSelectedData(data));
-      })
+      // .then((data) => {
+      //   return data;
+      // })
       .then((data) => {
         randomize(data);
-        createCards(data);
-        compareCards();
-        startGame();
-        counterMoves();
+        // createCards(data);
+        // compareCards();
+        // startGame();
+        // counterMoves();
+        return data;
       })
+      .then((data) => {
+        createCards(data);
+        return data;
+      })
+      .then((data) => {
+        compareCards();
+        return data;
+      })
+      .then((data) => {
+        startGame();
+        return data;
+      })
+      .then((data) => {
+        counterMoves();
+        return data;
+      })
+      // .then((data) => console.log(data))
       .catch((error) => console.log(error));
     return selectedTheme;
   });
 }
 // First get selected data then fetch data
-getSelectedItem(fetchData);
+getSelectedItem();

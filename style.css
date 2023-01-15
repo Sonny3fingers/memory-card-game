@@ -13,11 +13,14 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 1030px;
+  height: 100%;
+  min-width: 330px;
+  overflow-x: hidden;
 }
 .container {
   width: 100%;
   height: 100%;
+  min-width: 330px;
 }
 .modal {
   display: none;
@@ -103,6 +106,9 @@ header {
   align-items: center;
   padding: 1rem;
 }
+header h1 {
+  text-align: center;
+}
 header .actions button,
 .modal .endModalContent .endGameActions button,
 .modal .startModalContent .startGameActions button {
@@ -149,13 +155,12 @@ section {
   justify-content: center;
   grid-gap: 1rem;
   perspective: 800px;
-  /* pointer-events: none; */
   cursor: not-allowed;
   padding: 1.5rem 0rem;
 }
 section.selectedBothActors {
-  grid-template-columns: repeat(9, minmax(7.68rem, 1fr));
-  grid-template-rows: repeat(4, minmax(12rem, 1fr));
+  grid-template-columns: repeat(9, 112px);
+  grid-template-rows: repeat(4, 170px);
 }
 section.selectedSingleActor {
   grid-template-columns: repeat(6, minmax(3rem, 8rem));
@@ -274,5 +279,100 @@ section.selectedSingleActor {
   section.selectedBothActors {
     grid-template-columns: repeat(6, minmax(7rem, 1fr));
     grid-template-rows: repeat(6, minmax(14.5rem, 1fr));
+  }
+}
+@media screen and (max-width: 765px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  section {
+    height: 1400px;
+    padding: 3% 8%;
+  }
+  section.selectedBothActors {
+    height: 100%;
+    grid-template-columns: repeat(6, 112px);
+    grid-template-rows: repeat(7, 170px);
+  }
+  section.selectedSingleActor {
+    grid-template-columns: repeat(6, 112px);
+    grid-template-rows: repeat(3, 170px);
+  }
+}
+@media screen and (max-width: 670px) {
+  section {
+    height: 1200px;
+    padding: 2% 6%;
+  }
+  section.selectedBothActors {
+    grid-template-columns: repeat(5, 112px);
+    grid-template-rows: repeat(8, 170px);
+  }
+  section.selectedSingleActor {
+    grid-template-columns: repeat(5, 112px);
+    grid-template-rows: repeat(4, 170px);
+  }
+}
+@media screen and (max-width: 570px) {
+  section {
+    height: 1100px;
+    padding: 2% 5%;
+  }
+  section.selectedBothActors {
+    grid-template-columns: repeat(4, 112px);
+    grid-template-rows: repeat(10, 170px);
+  }
+  section.selectedSingleActor {
+    grid-template-columns: repeat(4, 112px);
+    grid-template-rows: repeat(5, 170px);
+  }
+}
+@media screen and (max-width: 520px) {
+  section {
+    height: 1000px;
+  }
+}
+@media screen and (max-width: 480px) {
+  section {
+    height: 950px;
+  }
+}
+@media screen and (max-width: 460px) {
+  section {
+    height: 930px;
+  }
+}
+@media screen and (max-width: 420px) {
+  section {
+    height: 1300px;
+    padding: 1%;
+  }
+  section.selectedBothActors {
+    grid-template-columns: repeat(3, 112px);
+    grid-template-rows: repeat(12, 170px);
+  }
+  section.selectedSingleActor {
+    grid-template-columns: repeat(3, 112px);
+    grid-template-rows: repeat(6, 170px);
+  }
+}
+@media screen and (max-width: 375px) {
+  section {
+    height: 1250px;
+    padding: 1%;
+  }
+}
+@media screen and (max-width: 365px) {
+  section {
+    height: 1200px;
+    padding: 1%;
+    min-width: 325px;
+  }
+}
+@media screen and (max-width: 345px) {
+  section {
+    height: 1000px;
+    padding: 1%;
   }
 }
