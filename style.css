@@ -176,7 +176,6 @@ section.selectedSingleActor {
   transition: all 1s ease;
   transform: rotateY(0deg);
   pointer-events: none;
-  /* cursor: not-allowed; */
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
 .card.flipped {
@@ -255,43 +254,8 @@ section.selectedSingleActor {
     grid-template-rows: repeat(4, minmax(10rem, 1fr));
   }
 }
-@media screen and (max-width: 1060px) {
-  body {
-    zoom: 80%;
-  }
-}
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 1100px) {
   section.selectedBothActors {
-    grid-template-columns: repeat(6, minmax(6.4rem, 1fr));
-    grid-template-rows: repeat(6, minmax(14.2rem, 1fr));
-  }
-}
-@media screen and (max-width: 950px) {
-  section.selectedBothActors {
-    grid-template-columns: repeat(6, minmax(7rem, 1fr));
-    grid-template-rows: repeat(6, minmax(12.5rem, 1fr));
-  }
-}
-@media screen and (max-width: 850px) {
-  section {
-    width: 96%;
-  }
-  section.selectedBothActors {
-    grid-template-columns: repeat(6, minmax(7rem, 1fr));
-    grid-template-rows: repeat(6, minmax(14.5rem, 1fr));
-  }
-}
-@media screen and (max-width: 765px) {
-  header {
-    flex-direction: column;
-    gap: 15px;
-  }
-  section {
-    height: 1400px;
-    padding: 3% 8%;
-  }
-  section.selectedBothActors {
-    height: 100%;
     grid-template-columns: repeat(6, 112px);
     grid-template-rows: repeat(7, 170px);
   }
@@ -300,12 +264,26 @@ section.selectedSingleActor {
     grid-template-rows: repeat(3, 170px);
   }
 }
-@media screen and (max-width: 670px) {
+@media screen and (max-width: 1060px) {
+  body {
+    zoom: 80%;
+  }
+}
+@media screen and (max-width: 850px) {
   section {
-    height: 1200px;
-    padding: 2% 6%;
+    width: 96%;
+  }
+}
+@media screen and (max-width: 775px) {
+  header {
+    flex-direction: column;
+    gap: 15px;
+  }
+  section {
+    padding: 3% 8%;
   }
   section.selectedBothActors {
+    height: 100%;
     grid-template-columns: repeat(5, 112px);
     grid-template-rows: repeat(8, 170px);
   }
@@ -314,39 +292,36 @@ section.selectedSingleActor {
     grid-template-rows: repeat(4, 170px);
   }
 }
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 645px) {
   section {
-    height: 1100px;
-    padding: 2% 5%;
+    padding: 2% 6%;
   }
   section.selectedBothActors {
     grid-template-columns: repeat(4, 112px);
-    grid-template-rows: repeat(10, 170px);
+    grid-template-rows: repeat(9, 170px);
   }
   section.selectedSingleActor {
     grid-template-columns: repeat(4, 112px);
     grid-template-rows: repeat(5, 170px);
   }
+  .modal .startModalContent,
+  .modal .endModalContent {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+  .modal .startModalContent .startGameInfo > div,
+  .modal .endModalContent .endGameInfo > div {
+    font-size: 1rem;
+  }
+  .modal .startModalContent,
+  .modal .endModalContent {
+    padding: 1rem;
+  }
 }
 @media screen and (max-width: 520px) {
   section {
-    height: 1000px;
-  }
-}
-@media screen and (max-width: 480px) {
-  section {
-    height: 950px;
-  }
-}
-@media screen and (max-width: 460px) {
-  section {
-    height: 930px;
-  }
-}
-@media screen and (max-width: 420px) {
-  section {
-    height: 1300px;
-    padding: 1%;
+    padding: 2% 5%;
   }
   section.selectedBothActors {
     grid-template-columns: repeat(3, 112px);
@@ -357,22 +332,16 @@ section.selectedSingleActor {
     grid-template-rows: repeat(6, 170px);
   }
 }
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 390px) {
   section {
-    height: 1250px;
     padding: 1%;
   }
-}
-@media screen and (max-width: 365px) {
-  section {
-    height: 1200px;
-    padding: 1%;
-    min-width: 325px;
+  section.selectedBothActors {
+    grid-template-columns: repeat(2, 112px);
+    grid-template-rows: repeat(18, 170px);
   }
-}
-@media screen and (max-width: 345px) {
-  section {
-    height: 1000px;
-    padding: 1%;
+  section.selectedSingleActor {
+    grid-template-columns: repeat(2, 112px);
+    grid-template-rows: repeat(9, 170px);
   }
 }

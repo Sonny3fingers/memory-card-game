@@ -7,8 +7,8 @@ let totalCorrect = 0;
 let gameTime;
 let comparedCardsCounter = 0;
 let myTimer;
-let movies = [];
 let roles = [];
+
 // fetchData
 const fetchData = async () => {
   try {
@@ -41,27 +41,7 @@ const fetchData = async () => {
     alert(error);
   }
 };
-// Get selected data
-// function getSelectedData(dataRes) {
-//   let data = [];
-//   if (selectedTheme === "movies") {
-//     dataRes.forEach((movie) => data.push(movie));
-//   } else if (selectedTheme === "Al Pacino") {
-//     for (const movie of dataRes) {
-//       if (movie.actor === "Al Pacino") {
-//         data.push(movie);
-//       }
-//     }
-//   } else if (selectedTheme === "Robert De Niro") {
-//     for (const movie of dataRes) {
-//       if (movie.actor === "Robert De Niro") {
-//         data.push(movie);
-//       }
-//     }
-//   }
-//   loader.style.display = "none";
-//   return data;
-// }
+// Set params for API
 function setParams() {
   if (selectedTheme === "actors") {
     params = "actors";
@@ -84,19 +64,13 @@ const createCards = (data) => {
   data.forEach((item) => {
     const card = document.createElement("div");
     card.classList.add("card");
-    // card.id = item.id;
     card.setAttribute("dataId", item.dataId);
     const frontImgCard = document.createElement("img");
     frontImgCard.src = `${item.imageUrl}`;
     frontImgCard.classList = "front";
-    // frontImgCard.id = movie.image.id;
     const backCard = document.createElement("div");
     const backCardName = document.createElement("h3");
     backCardName.textContent = item.actor;
-    // This is other way to add text to backCard
-    // item.dataId.includes("a1")
-    //   ? `${(backCardName.textContent = "Al Pacino")}`
-    //   : `${(backCardName.textContent = "Robert de Niro")}`;
     backCard.classList = "back";
     backCard.appendChild(backCardName);
     card.appendChild(frontImgCard);
@@ -153,13 +127,13 @@ const startGame = () => {
   startBtn.classList.add("start");
   startBtn.addEventListener("click", () => {
     if (!started) {
-      // section.style.pointerEvents = "all";
+      started = true;
+      section.style.pointerEvents = "none";
       section.style.cursor = "pointer";
       cards.forEach((card) => {
         card.style.pointerEvents = "all";
         card.style.cursor = "pointer";
       });
-      started = true;
       startBtn.innerText = "pause";
       myTimer = setInterval(() => {
         SECONDS++;
@@ -168,6 +142,7 @@ const startGame = () => {
       }, 1000);
     } else {
       section.style.cursor = "not-allowed";
+      // section.style.pointerEvents = "none";
       cards.forEach((card) => {
         card.style.pointerEvents = "none";
       });
@@ -230,7 +205,7 @@ function restartGame() {
   });
 }
 // Get selected item
-function getSelectedItem(data) {
+function getSelectedItem() {
   const modal = document.querySelector(".modal");
   const startModalContent = document.querySelector(".startModalContent");
   const enterBtn = document.querySelector(".startGameActions button");
@@ -253,15 +228,8 @@ function getSelectedItem(data) {
 
     setParams();
     fetchData()
-      // .then((data) => {
-      //   return data;
-      // })
       .then((data) => {
         randomize(data);
-        // createCards(data);
-        // compareCards();
-        // startGame();
-        // counterMoves();
         return data;
       })
       .then((data) => {
@@ -280,8 +248,7 @@ function getSelectedItem(data) {
         counterMoves();
         return data;
       })
-      // .then((data) => console.log(data))
-      .catch((error) => console.log(error));
+      .catch((error) => alert(error));
     return selectedTheme;
   });
 }
